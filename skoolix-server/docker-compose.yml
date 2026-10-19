@@ -1,21 +1,48 @@
-version: '3.8'
-
 services:
-  skoolix-api:
+
+  mysql:
+    image: mysql:8.4
+    container_name: skoolix-mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: skoolix_root_123
+      MYSQL_DATABASE: skoolix
+      MYSQL_USER: skoolix
+      MYSQL_PASSWORD: skoolix123
+    ports:
+      - "3307:3306"
+    volumes:
+      - mysql-data:/var/lib/mysql
+    healthcheck:
+      test: [ "CMD-SHELL", "mysqladmin ping -h localhost -u skoolix -p skoolix123" ]
+      interval: 5s
+      timeout: 5s
+      retries: 15
+      start_period: 30s
+    restart: unless-stopped
+    
+  skoolix-server:
     build:
       context: .
       dockerfile: Dockerfile
-    container_name: skoolix-api
+    container_name: skoolix-server
+    depends_on:
+      mysql:
+        condition: service_healthy
+        
     ports:
-      - "8080:8080"
+      - "8081:8080"
+      
     environment:
       # Database
-      DB_URL: ${DB_URL}
-      DB_USERNAME: ${DB_USERNAME}
-      DB_PASSWORD: ${DB_PASSWORD}
-
+      SPRING_PROFILES_ACTIVE: docker
+      DB_HOST: mysql
+      DB_PORT: 3306
+      DB_NAME: skoolix
+      DB_USERNAME: skoolix
+      DB_PASSWORD: skoolix123
+      
       # JWT
-      JWT_SECRET: ${JWT_SECRET}
+      JWT_SECRET: local-dev-jwt-secret-32-chars-minimum-xxxxxxxx
       JWT_ACCESS_EXPIRY: 900000
       JWT_REFRESH_EXPIRY: 604800000
 
@@ -32,3 +59,6 @@ services:
       SPRING_PROFILES_ACTIVE: prod
 
     restart: unless-stopped
+    
+volumes:
+  mysql-data:
