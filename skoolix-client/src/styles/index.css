@@ -1,0 +1,9 @@
+/* Vite template styles removed.
+   Theme tokens, reset and typography live in global.css. */
+body {
+    margin: 0;
+}
+
+#root {
+    min-height: 100svh;
+}

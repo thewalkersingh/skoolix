@@ -1,5 +1,0 @@
-package com.skooly.enums;
-
-public enum StudentStatus {
-	LEFT, INACTIVE, GRADUATED, TRANSFERRED, COMPLETED, APPROVED, REJECTED, APPLIED, DELETED, ACTIVE
-}

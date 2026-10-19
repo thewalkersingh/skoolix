@@ -1,0 +1,119 @@
+## 📁 Step 2 — Folder Structure
+
+skoolix-client/
+├── public/
+│   └── skoolix-logo.svg
+├── src/
+│   ├── api/                    # axios instances + API calls per module
+│   │   ├── axios.js
+│   │   ├── authApi.js
+│   │   ├── studentApi.js
+│   │   ├── teacherApi.js
+│   │   ├── classroomApi.js
+│   │   ├── attendanceApi.js
+│   │   ├── feeApi.js
+│   │   ├── examApi.js
+│   │   ├── libraryApi.js
+│   │   ├── staffApi.js
+│   │   ├── facilityApi.js
+│   │   ├── parentApi.js
+│   │   └── activityLogApi.js
+│   │
+│   ├── components/             # shared/reusable components
+│   │   ├── ui/                 # shadcn components live here (auto-generated)
+│   │   ├── layout/
+│   │   │   ├── AppLayout.jsx
+│   │   │   ├── Navbar.jsx
+│   │   │   ├── Sidebar.jsx
+│   │   │   └── PageHeader.jsx
+│   │   ├── common/
+│   │   │   ├── DataTable.jsx
+│   │   │   ├── Pagination.jsx
+│   │   │   ├── SearchBar.jsx
+│   │   │   ├── StatusBadge.jsx
+│   │   │   ├── ConfirmDialog.jsx
+│   │   │   ├── EmptyState.jsx
+│   │   │   ├── LoadingSpinner.jsx
+│   │   │   └── PhotoUpload.jsx
+│   │   └── charts/
+│   │       ├── BarChartCard.jsx
+│   │       ├── LineChartCard.jsx
+│   │       └── PieChartCard.jsx
+│   │
+│   ├── pages/                  # one folder per module
+│   │   ├── auth/
+│   │   │   ├── LoginPage.jsx
+│   │   │   ├── ForgotPasswordPage.jsx
+│   │   │   └── ResetPasswordPage.jsx
+│   │   ├── dashboard/
+│   │   │   └── DashboardPage.jsx
+│   │   ├── students/
+│   │   │   ├── StudentsPage.jsx
+│   │   │   ├── StudentDetailPage.jsx
+│   │   │   └── StudentFormPage.jsx
+│   │   ├── teachers/
+│   │   │   ├── TeachersPage.jsx
+│   │   │   ├── TeacherDetailPage.jsx
+│   │   │   └── TeacherFormPage.jsx
+│   │   ├── classes/
+│   │   │   ├── ClassesPage.jsx
+│   │   │   ├── ClassDetailPage.jsx
+│   │   │   └── TimetablePage.jsx
+│   │   ├── attendance/
+│   │   │   ├── AttendancePage.jsx
+│   │   │   ├── MarkAttendancePage.jsx
+│   │   │   └── AttendanceReportPage.jsx
+│   │   ├── fees/
+│   │   │   ├── FeesPage.jsx
+│   │   │   ├── FeePaymentPage.jsx
+│   │   │   └── FinanceSummaryPage.jsx
+│   │   ├── exams/
+│   │   │   ├── ExamsPage.jsx
+│   │   │   ├── ExamDetailPage.jsx
+│   │   │   ├── EnterResultsPage.jsx
+│   │   │   └── ReportCardPage.jsx
+│   │   ├── library/
+│   │   │   ├── LibraryPage.jsx
+│   │   │   ├── BookDetailPage.jsx
+│   │   │   └── IssuedBooksPage.jsx
+│   │   ├── staff/
+│   │   │   ├── StaffPage.jsx
+│   │   │   ├── StaffDetailPage.jsx
+│   │   │   ├── LeaveRequestsPage.jsx
+│   │   │   └── PayrollPage.jsx
+│   │   ├── facilities/
+│   │   │   ├── FacilitiesPage.jsx
+│   │   │   ├── RoomsPage.jsx
+│   │   │   └── MaintenancePage.jsx
+│   │   ├── parents/
+│   │   │   ├── ParentsPage.jsx
+│   │   │   └── ParentDetailPage.jsx
+│   │   ├── notifications/
+│   │   │   └── NotificationsPage.jsx
+│   │   └── activity-logs/
+│   │       └── ActivityLogsPage.jsx
+│   │
+│   ├── store/                  # Zustand global state
+│   │   ├── authStore.js
+│   │   ├── uiStore.js
+│   │   └── notificationStore.js
+│   │
+│   ├── hooks/                  # custom hooks
+│   │   ├── useAuth.js
+│   │   ├── usePagination.js
+│   │   ├── useDebounce.js
+│   │   └── useConfirm.js
+│   │
+│   ├── utils/                  # helper functions
+│   │   ├── formatters.js
+│   │   ├── validators.js
+│   │   └── constants.js
+│   │
+│   ├── routes/
+│   │   ├── AppRouter.jsx
+│   │   ├── ProtectedRoute.jsx
+│   │   └── RoleRoute.jsx
+│   │
+│   ├── App.jsx
+│   ├── main.jsx
+│   └── index.css
